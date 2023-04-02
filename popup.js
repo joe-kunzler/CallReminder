@@ -1,8 +1,17 @@
 function addReminderToList(reminder) {
     const reminderList = document.getElementById("reminder-list");
     const listItem = document.createElement("li");
-    const text = document.createTextNode(`${reminder.name} - ${reminder.frequency}`);
+    const text = document.createTextNode(`${reminder.name} - ${reminder.frequency} - ${reminder.time}`);
     listItem.appendChild(text);
+    
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", function() {
+      deleteReminder(reminder.id);
+      listItem.remove();
+    });
+    listItem.appendChild(deleteButton);
+    
     reminderList.appendChild(listItem);
   }
   
@@ -13,6 +22,16 @@ function addReminderToList(reminder) {
           addReminderToList(reminder);
         }
       }
+    });
+  }
+
+  function deleteReminder(id) {
+    chrome.storage.sync.get("reminders", function (data) {
+      const reminders = data.reminders || [];
+      const updatedReminders = reminders.filter(function(reminder) {
+        return reminder.id !== id;
+      });
+      chrome.storage.sync.set({ reminders: updatedReminders });
     });
   }
   
