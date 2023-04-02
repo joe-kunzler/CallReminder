@@ -1,5 +1,6 @@
 function checkReminders() {
     chrome.storage.sync.get("reminders", function (data) {
+      console.log("Checking reminders...");
       if (data.reminders) {
         for (const reminder of data.reminders) {
           const now = new Date();
@@ -44,6 +45,6 @@ function checkReminders() {
   }
 
 // Call the checkReminders function every 15 minutes
-setInterval(checkReminders, 15 * 60 * 1000);
+setInterval(checkReminders, 2 * 60 * 1000);
 
   
