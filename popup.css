@@ -1,80 +1,100 @@
 /* Popup CSS code here */
 
 body {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    background-color: #f5f5f5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-image: linear-gradient(to bottom right, #8e9eab, #eef2f3);
     color: #333;
     margin: 0;
     padding: 0;
-  }
-  
-  form {
+    }
+    
+    form {
     margin-bottom: 20px;
-  }
-  
-  label {
+    }
+    
+    label {
     display: inline-block;
     width: 100px;
     margin-bottom: 10px;
-  }
-  
-  input[type="text"],
-  select,
-  input[type="date"],
-  button {
+    font-size: 18px;
+    }
+    
+    input[type="text"],
+    select,
+    input[type="date"],
+    button {
     width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    background-color: #4CAF50;
+    padding: 10px;
+    border: 2px solid #8e9eab;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+    }
+    
+    input[type="text"]:focus,
+    select:focus,
+    input[type="date"]:focus,
+    button:focus {
+    box-shadow: 0 0 5px #8e9eab;
+    }
+    
+    button {
+    background-color: #3498db;
     color: white;
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  #reminder-list {
+    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    }
+    
+    button:hover {
+    background-color: #2980b9;
+    }
+    
+    #reminder-list {
     margin: 0;
     padding: 0;
     list-style: none;
     max-height: 200px;
     overflow-y: auto;
-  }
-  
-  #reminder-list li {
+    }
+    
+    #reminder-list li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  #reminder-list li span {
+    border: 2px solid #8e9eab;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    }
+    
+    #reminder-list li:hover {
+    transform: translateY(-5px);
+    }
+    
+    #reminder-list li span {
     margin-left: 10px;
     font-weight: bold;
     flex-grow: 1;
-  }
-  
-  #reminder-list li button {
-    background-color: #f44336;
+    }
+    
+    #reminder-list li button {
+    background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
+    border-radius: 10px;
+    padding: 10px;
     cursor: pointer;
-  }
-  
-  #reminder-list li button:hover {
-    background-color: #e53935;
-  }
-  
+    transition: background-color 0.3s ease;
+    }
+    
+    #reminder-list li button:hover {
+    background-color: #c0392b;
+    }
