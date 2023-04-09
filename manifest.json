@@ -20,6 +20,8 @@
   "browser_action": {
     "default_title": "CallReminder",
     "default_icon": "icon16.png",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_width": 1200,
+    "default_height": 2000
   }
 }

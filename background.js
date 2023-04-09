@@ -21,22 +21,24 @@ function checkReminders() {
             nextDate = new Date(date.getTime());
             nextDate.setMonth(nextDate.getMonth() + 1);
             break;
-          case "custom":
-            nextDate = new Date(date.getTime() + parseInt(reminder.customFrequency) * 24 * 60 * 60 * 1000);
-            break;
           default:
             nextDate = null;
         }
 
-        if (nextDate && now >= date && now <= nextDate) {
+        if (nextDate && now >= date) {
           const options = {
             type: "basic",
             title: "Call Reminder",
             message: `It's time to call ${reminder.name} at ${reminder.time}!`,
-            iconUrl: "icon128.png"
+            iconUrl: "icon128.png",
+            requireInteraction: true // Make the popup stay until user interacts with it
           };
 
           chrome.notifications.create(options);
+
+          // Play a sound
+          const audio = new Audio("success-fanfare-trumpets-6185.mp3");
+          audio.play();
         }
       }
     }
@@ -44,6 +46,6 @@ function checkReminders() {
 }
 
 // Call the checkReminders function every 15 minutes
-setInterval(checkReminders, 2 * 60 * 1000);
+setInterval(checkReminders, 1 * 60 * 1000);
 
   

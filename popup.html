@@ -5,33 +5,35 @@
     <link rel="stylesheet" type="text/css" href="popup.css">
   </head>
   <body>
-    <form id="add-reminder-form">
-      <label for="name" class="centered-label">Name:</label>
-      <input type="text" id="name" required>
-      <br>
-      <label for="frequency" class="centered-label">Frequency:</label>
-      <select id="frequency" required>
-        <option value="daily">Daily</option>
-        <option value="weekly">Weekly</option>
-        <option value="biweekly">Bi-Weekly</option>
-        <option value="monthly">Monthly</option>
-        <option value="custom">Custom</option>
-      </select>
-      <br>
-      <label for="custom_frequency" class="centered-label">Custom Frequency:</label>
-      <input type="text" id="custom_frequency" placeholder="Number of days">
-      <br>
-      <label for="date" class="centered-label">Last Called:</label>
-      <input type="date" id="date" required>
-      <br>
-      <label for="time" class="centered-label">Time:</label>
-      <input type="time" id="time" required>
-      <br>
-      <button type="submit">Add Reminder</button>
-    </form>
-    <ul id="reminder-list"></ul>
+    <div class="container">
+      <h1 class="title">Call Reminder</h1>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <form id="add-reminder-form">
+        <div class="form-group">
+          <label for="name" class="centered-label">Name:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="frequency" class="centered-label">Frequency:</label>
+            <div class="bubbles-selector" id="frequency" required>
+              <label for="daily"><input type="radio" id="daily" name="frequency" value="daily"> Daily</label>
+              <label for="weekly"><input type="radio" id="weekly" name="frequency" value="weekly"> Weekly</label>
+              <label for="biweekly"><input type="radio" id="biweekly" name="frequency" value="biweekly"> Bi-Weekly</label>
+              <label for="monthly"><input type="radio" id="monthly" name="frequency" value="monthly"> Monthly</label>
+            </div>
+          </div>          
+        <div class="form-group">
+          <label for="date" class="centered-label">Last Called:</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time" class="centered-label">Time:</label>
+          <input type="time" id="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Reminder</button>
+      </form>
+      <ul id="reminder-list"></ul>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
-
-

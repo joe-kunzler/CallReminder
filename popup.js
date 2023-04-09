@@ -15,32 +15,33 @@ function addReminderToList(reminder) {
     reminderList.appendChild(listItem);
   }
   
-  function loadReminders() {
+function loadReminders() {
     chrome.storage.sync.get("reminders", function (data) {
-      if (data.reminders) {
+        if (data.reminders) {
+        console.log('Loaded reminders:', data.reminders); // Add this line
         for (const reminder of data.reminders) {
-          addReminderToList(reminder);
+            addReminderToList(reminder);
         }
-      }
+        }
     });
-  }
-
-  function deleteReminder(id) {
-    chrome.storage.sync.get("reminders", function (data) {
-      const reminders = data.reminders || [];
-      const updatedReminders = reminders.filter(function(reminder) {
-        return reminder.id !== id;
-      });
-      chrome.storage.sync.set({ reminders: updatedReminders });
-    });
-  }
+    }
   
-  function addReminder(event) {
+
+function deleteReminder(id) {
+    chrome.storage.sync.get("reminders", function (data) {
+        const reminders = data.reminders || [];
+        const updatedReminders = reminders.filter(function(reminder) {
+        return reminder.id !== id;
+        });
+        chrome.storage.sync.set({ reminders: updatedReminders });
+    });
+    }
+  
+function addReminder(event) {
     event.preventDefault();
   
     const name = document.getElementById("name").value;
     const frequency = document.getElementById("frequency").value;
-    const customFrequency = document.getElementById("custom_frequency").value;
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
     const id = Date.now().toString();
@@ -49,7 +50,6 @@ function addReminderToList(reminder) {
       id,
       name,
       frequency,
-      customFrequency,
       date,
       time
     };

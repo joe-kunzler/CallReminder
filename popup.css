@@ -1,7 +1,7 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+    font-family: 'Courier New', sans-serif;
+    font-size: 12px;
+    line-height: 1.2;
     background-image: linear-gradient(to bottom right, #8e9eab, #eef2f3);
     color: #333;
     margin: 0;
@@ -16,30 +16,52 @@ body {
     display: inline-block;
     width: 100px;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
   }
   
   input[type="text"],
-  select,
   input[type="date"],
+  input[type="time"],
   button {
-    width: 200px;
-    padding: 10px;
+    width: 150px;
+    padding: 5px; /* Reduced padding */
     border: 2px solid #8e9eab;
     border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 12px; /* Reduced font size */
     outline: none;
     text-align: center;
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  select {
+    width: 200px;
+    padding: 5px; /* Reduced padding */
+    height: 30px; /* Set a fixed height */
+    border: 2px solid #f2f5f8;
+    border-radius: 10px;
+    font-size: 12px; /* Reduced font size */
+    outline: none;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    -webkit-appearance: none; /* Remove the default appearance */
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%238e9eab" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>') no-repeat;
+    background-position: right 0.5em center; /* Position the custom arrow */
+    background-size: 1.25em 1.25em;
+    background-color: white;
+    padding-right: 1.75em; /* Add padding to the right to make room for the custom arrow */
   }
   
   input[type="text"]:focus,
   select:focus,
   input[type="date"]:focus,
-  button:focus {
+  input[type="time"]:focus {
     box-shadow: 0 0 5px #8e9eab;
   }
   
@@ -101,5 +123,27 @@ body {
   
   #reminder-list li button:hover {
     background-color: #c0392b;
+  }
+  
+  #reminder-list li .reminder-name,
+  #reminder-list li .reminder-frequency {
+    flex-grow: 2;
+    text-align: center;
+  }
+
+  #reminder-list li .reminder-time {
+    flex-grow: 1;
+    text-align: center;
+    font-size: small;
+  }
+  
+  #reminder-list li .reminder-name {
+    font-weight: bold;
+    font-display: bold; ;
+  }
+  
+  #reminder-list li .reminder-frequency,
+  #reminder-list li .reminder-time {
+    font-style: italic;
   }
   
